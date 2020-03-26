@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    networks:
+      - prometheus
+    restart: always
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    networks:
+      - prometheus
+    restart: always
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    networks:
+      - prometheus
+    restart: always
+
+  blackbox-exporter:
+    image: prom/blackbox-exporter:latest
+    networks:
+      - prometheus
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    networks:
+      - prometheus
+    restart: always
+
+networks:
+  prometheus:
+
+volumes:
+  prom-data:
+
