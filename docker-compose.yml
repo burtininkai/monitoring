@@ -26,6 +26,8 @@ services:
     image: prom/blackbox-exporter:latest
     networks:
       - prometheus
+    ports:
+      - "9115:9115"
     restart: always
 
   nginx:
@@ -39,4 +41,5 @@ networks:
 
 volumes:
   prom-data:
+  black-data:
 
