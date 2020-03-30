@@ -4,6 +4,10 @@ services:
     image: prom/prometheus:latest
     networks:
       - prometheus
+    volumes:
+      - prom-data:/etc/prometheus
+    ports:
+      - "9090:9090"
     restart: always
 
   alertmanager:
